@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h2>○○講座予約システム</h2>
+    <h3>{{message}}</h3>
+
+    {% if finish == 0 %}
+      <form action="{% url 'form' %}" method="post">
+        {% csrf_token %}
+        <p>講座
+          <select name="course">
+            <option value="begin" selected>初級</option>
+            <option value="middle">中級</option>
+            <option value="advance">上級</option>
+        </select></p>
+
+        <p>曜日
+          <select name="weekday">
+            <option value="mon" selected>月曜</option>
+            <option value="tue">火曜</option>
+            <option value="wed">水曜</option>
+        </select></p>
+
+        <button type="submit" name="action" value="reg">予約</button>
+        &ensp;　&ensp;
+        <button type="submit" name="action" value="can">中止</button>
+      </form>
+    {% endif %}
+  </body>
+</html>
