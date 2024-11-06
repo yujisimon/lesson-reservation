@@ -14,50 +14,40 @@ foreignkeyで繋げるのが定番となってる。これに続くモノが見�
 本システムは個人の入力と、講座DB・個人DBの内容を突き合わせ、受講予約の可否を判断し、
 クライアントに回答するとともに、講座DB・個人DBを更新する。
 
-クライアント側の入力
-　講座　初級、中級、上級からセレクト
-　曜日　月曜、火曜、水曜からセレクト
-　予約ボタン、中止ボタンのチョイス
+クライアント側の入力  
+　講座　初級、中級、上級からセレクト  
+　曜日　月曜、火曜、水曜からセレクト  
+　予約ボタン、中止ボタンのチョイス  
 
-主な出力
-　予約しました
-　満席です
-　申し込み済です
-　受講資格はありません
-　中止しました
+主な出力  
+　予約しました  
+　満席です  
+　申し込み済です  
+　受講資格はありません  
+　中止しました  
 
 セットアップ
 
-Djanoの稼働環境をセットアップ
+Djanoの稼働環境をセットアップ  
+django-admin startproject config .  
+python manage.py startapp courses  
+python manage.py makemigrations  
+python manage.py migrate  
+pyshon manage.py loaddata courses.json  
+python manage.py runserver  
 
-django-admin startproject config .
+また次も可能です  
+python manage.py test
 
-python manage.py startapp courses
-
-python manage.py makemigrations
-
-python manage.py migrate
-
-pyshon manage.py loaddata courses.json
-
-python manage.py runserver
-
-
-バージョン
-
-Python 3.12.3 
-
-Django 5.0.6
-
+バージョン  
+Python 3.12.3  
+Django 5.0.6  
 テスト環境はwindows11
 
 
-なおサインアップの個人名を以下のように想定している。
-
-hoge....  全くの未受講
-
-fuga....  初級講座受講済
-
+なおサインアップの個人名を以下のように想定している。  
+hoge....  全くの未受講  
+fuga....  初級講座受講済  
 piyo....  初級講座、中級講座受講済
 
 
