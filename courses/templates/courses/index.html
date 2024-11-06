@@ -8,7 +8,7 @@
     <h3>{{message}}</h3>
 
     {% if finish == 0 %}
-      <form action="{% url 'form' %}" method="post">
+      <form action="{% url 'course_applicated' %}" method="post">
         {% csrf_token %}
         <p>講座
           <select name="course">
@@ -29,5 +29,13 @@
         <button type="submit" name="action" value="can">中止</button>
       </form>
     {% endif %}
+
+    <div class="container mt-5">
+      <p>
+        <a href="{% url 'logout' %}" id="logout" class="btn btn-primary mb-3 mx-3">ログアウト</a>
+      </p>
+    </div class="container mt-5">
+
+
   </body>
 </html>

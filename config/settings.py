@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(vu5xb5!%)88i+1a5!*r2kit-()f31!=jii2=s!xf^#9)c#m(@'
+SECRET_KEY = 'django-insecure-2r#9zhe%-d&ifv*!cp2bmv2@#4*-j(9zzs(v3!4$5^yg$yo_oc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'courses.apps.CoursesConfig',  ####
-    'django.contrib.sites',  ####
-    'allauth',  ####
-    'allauth.account',  ####
-    'allauth.socialaccount',  ####
+    'courses.apps.CoursesConfig',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',  # この行を追加
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -128,11 +128,17 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-###### ↓認証系の設定 #####
+SITE_ID = 1
+
+###### 認証系の設定 #####
+AUTH_USER_MODEL = 'courses.CustomUser'    # 自作Userを認証用のUserモデルとして設定
+
 AUTHENTICATION_BACKENDS = (
    'django.contrib.auth.backends.ModelBackend',
-   'allauth.account.auth_backends.AuthenticationBackend',
+   #'allauth.account.auth_backends.AuthenticationBackend',
+   'courses.backends.CustomUserBackend',  # カスタムユーザーモデルのバックエンドを指定
 )
+
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
@@ -140,3 +146,4 @@ ACCOUNT_EMAIL_REQUIRED = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = 'index'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'

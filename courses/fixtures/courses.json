@@ -1,0 +1,37 @@
+
+[
+  {
+    "model":"courses.course",
+    "pk":1,
+    "fields": {
+      "coursetype": "begin",
+      "requisite": "000",
+      "mon":  2,
+      "tue":  2,
+      "wed":  2
+     }
+  },
+  {
+    "model":"courses.course",
+    "pk":2,
+    "fields": {
+      "coursetype": "middle",
+      "requisite": "100",
+      "mon":  2,
+      "tue":  2,
+      "wed":  2
+     }
+  },
+  {
+    "model":"courses.course",
+    "pk":3,
+    "fields": {
+      "coursetype": "advance",
+      "requisite": "110",
+      "mon":  2,
+      "tue":  2,
+      "wed":  2
+     }
+  }
+]
+
