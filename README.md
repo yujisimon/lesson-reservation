@@ -27,23 +27,39 @@ foreignkeyで繋げるのが定番となってる。これに続くモノが見�
 　中止しました
 
 セットアップ
+
 Djanoの稼働環境をセットアップ
+
 django-admin startproject config .
+
 python manage.py startapp courses
+
 python manage.py makemigrations
+
 python manage.py migrate
+
 pyshon manage.py loaddata courses.json
+
 python manage.py runserver
 
+
 バージョン
+
 Python 3.12.3 
+
 Django 5.0.6
+
 テスト環境はwindows11
 
+
 なおサインアップの個人名を以下のように想定している。
+
 hoge....  全くの未受講
+
 fuga....  初級講座受講済
+
 piyo....  初級講座、中級講座受講済
+
 
 講座の席数は2席とし、満席のテストを容易にしている。
 
